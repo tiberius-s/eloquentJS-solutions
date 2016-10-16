@@ -29,7 +29,7 @@ Write a program that uses console.log to print all the numbers from 1 to 100, wi
 When you have that working, modify your program to print "FizzBuzz" for numbers that are divisible by both 3 and 5.
 (This is actually an interview question that has been claimed to weed out a significant percentage of programmer candidates. So if you solved it, you’re now allowed to feel good about yourself.)
 
-Solution:
+### Solution:
 
 ```js
 function printFizzBuzz(start, end) {
@@ -68,7 +68,8 @@ _#_#_#_#
 ```
 When you have a program that generates this pattern, define a variable size = 8 and change the program so that it works for any size, outputting a grid of the given width and height.
 
-Solution:
+### Solution:
+
 ```js
 var size = 8;
 function printChessBoard(width, height) {
