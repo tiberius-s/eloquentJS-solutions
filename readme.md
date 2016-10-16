@@ -1,5 +1,5 @@
 # Eloquent Javascript Exercise Solutions
 
-### Just a repo to host the solutions I wrote while reading through [Eloquent Javascript](http://eloquentjavascript.net/) by Marijn Haverbeke
+### A repo to host the solutions I wrote to the exercises from [Eloquent Javascript](http://eloquentjavascript.net/) by Marijn Haverbeke.
 
 -ts
