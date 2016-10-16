@@ -89,5 +89,5 @@ function printChessBoard(width, height) {
   }
 }
 
-printChessBoard(8, 8);
+printChessBoard(size, size);
 ```
