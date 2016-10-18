@@ -6,12 +6,7 @@ The previous chapter introduced the standard function Math.min that returns its 
 ### Solution:
 ```js
 function printMinimum(num1, num2) {
-  if(num1 < num2){
-    return num1;
-  }
-  else{
-    return num2;
-  }
+  return num1 < num2 ? num1 : num2;
 }
 
 console.log(printMinimum(4, 8));
