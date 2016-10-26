@@ -102,15 +102,50 @@ var list = {
   }
 };
 ```
-A nice thing about lists is that they can share parts of their structure. For example, if I create two new values {value: 0, rest: list} and {value: -1, rest: list} (with list referring to the variable defined earlier), they are both independent lists, but they share the structure that makes up their last three elements. In addition, the original list is also still a valid three-element list.
+A nice thing about lists is that they can share parts of their structure. For example, if I create two new values `{value: 0, rest: list}` and `{value: -1, rest: list}` (with list referring to the variable defined earlier), they are both independent lists, but they share the structure that makes up their last three elements. In addition, the original list is also still a valid three-element list.
 
-Write a function arrayToList that builds up a data structure like the previous one when given [1, 2, 3] as argument, and write a listToArray function that produces an array from a list. Also write the helper functions prepend, which takes an element and a list and creates a new list that adds the element to the front of the input list, and nth, which takes a list and a number and returns the element at the given position in the list, or undefined when there is no such element.
+Write a function `arrayToList` that builds up a data structure like the previous one when given [1, 2, 3] as argument, and write a `listToArray` function that produces an array from a list. Also write the helper functions `prepend`, which takes an element and a list and creates a new list that adds the element to the front of the input list, and `nth`, which takes a list and a number and returns the element at the given position in the list, or undefined when there is no such element.
 
 If you haven’t already, also write a recursive version of nth.
 
 ### Solution:
 ```js
+function arrayToList(arr) {
+  let list = null;
+  for (let i = arr.length - 1; i >= 0; i--){
+    list = { value: arr[i], rest: list };
+  }
+  return list;
+}
 
+function listToArray(obj) {
+  let arr = [];
+  while (obj.rest) {
+    arr.push(obj.value);
+    obj = obj.rest;
+  }
+  arr.push(obj.value);
+  return arr;
+}
+
+function prepend(el, list) {
+  list = { value: el, rest: list };
+  return list;
+}
+
+function nth(list, num) {
+  if (num == 0) {
+    return list.value;
+  } else {
+    return nth(list.rest, num - 1);
+  }
+}
+
+let array = [1, 2, 3];
+console.log(arrayToList(array));
+console.log(listToArray(arrayToList(array)));
+console.log(prepend(0, arrayToList(array)));
+console.log(nth(arrayToList(array), 1));
 ```
 
 ## 4. Deep Comparison
