@@ -2,7 +2,7 @@
 
 function printFizzBuzz(start, end) {
   if (start <= end) {
-    if (start % 5 == 0 && start % 5 == 0) {
+    if (start % 5 == 0 && start % 3 == 0) {
       console.log('FizzBuzz');
     }
     else if (start % 3 == 0) {
@@ -15,7 +15,7 @@ function printFizzBuzz(start, end) {
       console.log(start);
     }
     printFizzBuzz(start + 1, end);
-  } 
+  }
 }
 
 printFizzBuzz(1, 100);
