@@ -1,4 +1,4 @@
-const deepEqual = (val1, val2) => {
+function deepEqual(val1, val2){
   // check if values are strictly equal
   if (val1 === val2) {
     return true;

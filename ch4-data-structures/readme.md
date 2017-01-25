@@ -158,7 +158,7 @@ To find out whether to compare two things by identity (use the === operator for 
 
 ## Solution:
 ```js
-const deepEqual = (val1, val2) => {
+function deepEqual(val1, val2){
   // check if values are strictly equal
   if (val1 === val2) {
     return true;
