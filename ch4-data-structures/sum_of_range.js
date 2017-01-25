@@ -34,7 +34,7 @@ function range(start, end, step) {
 }
 
 function sumArray(arr) {
-  return arr.reduce(function(a, b) {
+  return arr.reduce((a, b) => {
     return a + b;
   });
 }
