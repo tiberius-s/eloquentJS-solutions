@@ -23,10 +23,15 @@ function average(array) {
   return array.reduce(plus) / array.length;
 }
 
-var byName = {};
-ancestry.forEach(function(person) {
+const byName = {};
+ancestry.forEach(function (person) {
   byName[person.name] = person;
 });
+
+const hasMother = (person) => byName[person.mother] !== undefined;
+const difference = (person) => person.born - byName[person.mother].born;
+const avgAge = average(ancestry.filter(hasMother).map(difference));
+console.log(avgAge);
 ```
 
 
