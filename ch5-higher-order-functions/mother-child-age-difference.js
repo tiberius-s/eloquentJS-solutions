@@ -2,7 +2,7 @@ const ancestryFile = require('./ancestry');
 const ancestry = JSON.parse(ancestryFile);
 
 function average(array) {
-  function plus(a, b) { return a + b; }
+  let plus = (a, b) => a + b;
   return array.reduce(plus) / array.length;
 }
 

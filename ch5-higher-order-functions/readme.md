@@ -19,7 +19,7 @@ Note that not all the mothers mentioned in the data are themselves present in th
 
 ```js
 function average(array) {
-  function plus(a, b) { return a + b; }
+  let plus = (a, b) => a + b;
   return array.reduce(plus) / array.length;
 }
 
