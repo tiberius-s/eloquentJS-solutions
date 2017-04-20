@@ -7,9 +7,7 @@ function average(array) {
 }
 
 const byName = {};
-ancestry.forEach(function (person) {
-  byName[person.name] = person;
-});
+ancestry.forEach( person => byName[person.name] = person);
 
 const hasMother = (person) => byName[person.mother] !== undefined;
 const difference = (person) => person.born - byName[person.mother].born;
