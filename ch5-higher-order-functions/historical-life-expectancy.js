@@ -9,7 +9,7 @@ const ancestry = JSON.parse(ancestryFile);
 
 function average(array) {
   function plus(a, b) { return a + b; }
-  return array.reduce(plus) / array.length;
+  return Math.round((array.reduce(plus) / array.length) * 100) / 100;
 }
 
 function groupByCentury(array) {
@@ -26,10 +26,10 @@ function groupByCentury(array) {
   return group;
 }
 
-function calculateAverages(obj) {
-  for (let group in obj) {
-    let ages = obj[group].map(person => person.died - person.born);
-    console.log(`Century ${group} average was ${average(ages)}`);
+function calculateAverages(groups) {
+  for (let century in groups) {
+    let ages = groups[century].map(person => person.died - person.born);
+    console.log(`Century ${century} average was ${average(ages)}`);
   }
 }
 
