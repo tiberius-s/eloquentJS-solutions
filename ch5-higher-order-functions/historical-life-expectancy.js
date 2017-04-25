@@ -12,4 +12,26 @@ function average(array) {
   return array.reduce(plus) / array.length;
 }
 
+function groupByCentury(array) {
+  let group = {};
+  array.forEach(person => {
+    let century = Math.ceil(person.died / 100);
+    if (!group.hasOwnProperty(century)) {
+      group[century] = [];
+      group[century].push(person);
+    } else {
+      group[century].push(person);
+    }
+  })
+  return group;
+}
+
+function calculateAverages(obj) {
+  for (let group in obj) {
+    let ages = obj[group].map(person => person.died - person.born);
+    console.log(`Century ${group} average was ${average(ages)}`);
+  }
+}
+
+calculateAverages(groupByCentury(ancestry));
 
