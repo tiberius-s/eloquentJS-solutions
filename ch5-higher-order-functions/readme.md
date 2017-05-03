@@ -81,4 +81,8 @@ Write two functions, every and some, that behave like these methods, except that
 
 ```js
 
+const every = (arr, evalFunc) => arr.reduce((a, b) => evalFunc(a) === (evalFunc(a) === evalFunc(b)));
+
+const some = (arr, evalFunc) => arr.map(a => evalFunc(a)).includes(true);
+
 ```
