@@ -1,5 +1,5 @@
 import '@jest/globals';
-import { every, everySome, flatten, loop } from './ch5';
+import { every, everySome, flatten, loop, dominantDirection, WritingDirection } from './ch5';
 
 describe('Eloquent Javascript - Chapter 5', () => {
   describe('1 - Flattening', () => {
@@ -30,23 +30,27 @@ describe('Eloquent Javascript - Chapter 5', () => {
   });
 
   describe('3 - Everything', () => {
-    test('every should return true', () => {
-      expect(every([1, 2, 3, 4, 5], (x) => x < 10)).toBeTruthy();
+    test.each([
+      [[1, 2, 3, 4, 5], (x: number) => x < 10, true],
+      [[6, 7, 8, 9, 10], (x: number) => x < 10, false],
+    ])('given %p and %s, every returns %p', (arr, fn, expected) => {
+      expect(every(arr, fn)).toBe(expected);
     });
-    test('every return false', () => {
-      expect(every([6, 7, 8, 9, 10], (x) => x < 10)).toBeFalsy();
-    });
-    test('everySome should return true', () => {
-      expect(everySome([1, 2, 3, 4, 5], (x) => x < 10)).toBeTruthy();
-    });
-    test('everySome return false', () => {
-      expect(everySome([6, 7, 8, 9, 10], (x) => x < 10)).toBeFalsy();
+
+    test.each([
+      [[1, 2, 3, 4, 5], (x: number) => x < 10, true],
+      [[6, 7, 8, 9, 10], (x: number) => x < 10, false],
+    ])('given %p and %s, everySome returns %p', (arr, fn, expected) => {
+      expect(everySome(arr, fn)).toBe(expected);
     });
   });
 
   describe('4 - Dominant Writing Direction', () => {
-    test('every should return true', () => {
-      expect(every([1, 2, 3, 4, 5], (x) => x < 10)).toBeTruthy();
+    test.each([
+      ['Hello!', WritingDirection.LeftToRight],
+      ['Hey, مساء الخير', WritingDirection.RightToLeft],
+    ])('%p should return %', (text, expected) => {
+      expect(dominantDirection(text)).toEqual(expected);
     });
   });
 });

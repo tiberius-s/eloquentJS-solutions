@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "start": "node -r @swc-node/register index.ts",
-    "ch": "node -r @swc-node/register ./cli.ts -- ch",
+    "ch": "node -r @swc-node/register ./index.ts -- ch",
     "test": "jest --"
   },
   "repository": {
