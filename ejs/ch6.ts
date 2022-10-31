@@ -1,4 +1,5 @@
-class Vec {
+// Exercise 1
+export class Vec {
   x: number;
   y: number;
   constructor(x: number, y: number) {
@@ -23,9 +24,60 @@ class Vec {
   }
 }
 
-console.log(new Vec(1, 2).plus(new Vec(2, 3)));
-// → Vec{x: 3, y: 5}
-console.log(new Vec(1, 2).minus(new Vec(2, 3)));
-// → Vec{x: -1, y: -1}
-console.log(new Vec(3, 4).length);
-// → 5
+// Exercise 2
+export class Group {
+  list: unknown[];
+
+  constructor() {
+    this.list = [];
+  }
+
+  add(item: unknown): void {
+    if (!this.has(item)) {
+      this.list.push(item);
+    }
+  }
+
+  delete(item: unknown): void {
+    const index = this.list.indexOf(item);
+    if (index !== -1) {
+      this.list.splice(index, 1);
+    }
+  }
+
+  has(item: unknown): boolean {
+    return this.list.includes(item);
+  }
+
+  static from(iterable: Iterable<unknown>): Group {
+    const group = new Group();
+    for (const item of iterable) {
+      group.add(item);
+    }
+    return group;
+  }
+
+  [Symbol.iterator]() {
+    return new GroupIterator(this);
+  }
+}
+
+// Exercise 3
+export class GroupIterator {
+  index: number;
+  list: unknown[];
+
+  constructor(group: Group) {
+    this.index = 0;
+    this.list = group.list;
+  }
+
+  next() {
+    if (this.index === this.list.length) {
+      return { done: true };
+    }
+    const value = this.list[this.index];
+    this.index++;
+    return { value, done: false };
+  }
+}
