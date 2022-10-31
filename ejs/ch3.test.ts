@@ -2,7 +2,7 @@ import '@jest/globals';
 import { countB, countChar, isEven, min } from './ch3';
 
 describe('Eloquent Javascript - Chapter 3', () => {
-  describe('min', () => {
+  describe('1 - Minimum', () => {
     test.each([
       [0, 10, 0],
       [0, -10, -10],
@@ -11,25 +11,22 @@ describe('Eloquent Javascript - Chapter 3', () => {
     });
   });
 
-  describe('isEven', () => {
+  describe('2 - Recursion', () => {
     test.each([
       [50, true],
       [75, false],
       [-1, false],
-    ])('%p should return %p', (input, expected) => {
+    ])('given %p, isEven should return %p', (input, expected) => {
       expect(isEven(input)).toEqual(expected);
     });
   });
 
-  describe('countChar', () => {
-    test('should return correct number of given char', () => {
-      expect(countChar('kakkerlak', 'k')).toEqual(4);
-    });
-  });
-
-  describe('countB', () => {
-    test('should return correct number of "B"', () => {
+  describe('3 - Bean counting', () => {
+    test('countB should return correct number of "B"', () => {
       expect(countB('BBC')).toEqual(2);
+    });
+    test('countChar should return correct number of given char', () => {
+      expect(countChar('kakkerlak', 'k')).toEqual(4);
     });
   });
 });

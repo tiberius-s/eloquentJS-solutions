@@ -1,9 +1,8 @@
 import '@jest/globals';
-import { describe } from '@jest/globals';
 import { Group, Vec } from './ch6';
 
-describe('Eloquent Javascript - Chapter 6', () => {
-  describe('A Vector Type', () => {
+describe('Eloquent JavaScript - Chapter 6', () => {
+  describe('1 - A Vector Type', () => {
     test('plus correctly calculates new vector', () => {
       const result = new Vec(1, 2).plus(new Vec(2, 3));
       expect(result).toEqual(new Vec(3, 5));
@@ -17,7 +16,7 @@ describe('Eloquent Javascript - Chapter 6', () => {
     });
   });
 
-  describe('Groups', () => {
+  describe('2 - Groups', () => {
     test('Group should have correct behaviors', () => {
       const group = Group.from([10, 20]);
       expect(group.has(10)).toBeTruthy();
@@ -28,7 +27,7 @@ describe('Eloquent Javascript - Chapter 6', () => {
     });
   });
 
-  describe('Iterable Groups', () => {
+  describe('3 - Iterable Groups', () => {
     test('should iterate over group', () => {
       const logSpy = jest.spyOn(console, 'log').mockImplementation(jest.fn);
 
@@ -44,7 +43,7 @@ describe('Eloquent Javascript - Chapter 6', () => {
     });
   });
 
-  describe('Borrowing a Method', () => {
+  describe('4 - Borrowing a Method', () => {
     test('Call hasOwnProperty from Object.prototype', () => {
       const map = { one: true, two: true, hasOwnProperty: true };
       expect(Object.hasOwnProperty.call(map, 'one')).toBeTruthy();

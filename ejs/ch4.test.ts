@@ -12,7 +12,7 @@ import {
 } from './ch4';
 
 describe('Eloquent Javascript - Chapter 4', () => {
-  describe('1 - range and sum', () => {
+  describe('1 - The Sum of a Range', () => {
     test('range should return array with numbers 1 - 10', () => {
       const expected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
       expect(range(1, 10)).toEqual(expected);
@@ -28,7 +28,7 @@ describe('Eloquent Javascript - Chapter 4', () => {
     });
   });
 
-  describe('2 - reversing an array', () => {
+  describe('2 - Reversing an Array', () => {
     test('reverseArray should return a new, reversed array', () => {
       const array = [1, 2, 3, 4, 5];
       const result = reverseArray(array);
@@ -44,7 +44,7 @@ describe('Eloquent Javascript - Chapter 4', () => {
     });
   });
 
-  describe('3 - a list', () => {
+  describe('3 - A List', () => {
     test('arrayToList should convert array to LinkedList', () => {
       const expected = { value: 10, rest: { value: 20, rest: null } };
       const arr = [10, 20];
@@ -75,7 +75,7 @@ describe('Eloquent Javascript - Chapter 4', () => {
     });
   });
 
-  describe('4 - deep comparison', () => {
+  describe('4 - Deep Comparison', () => {
     const obj = { here: { is: 'an' }, object: 2 };
     test.each([
       [obj, obj, true],
@@ -107,7 +107,7 @@ describe('Eloquent Javascript - Chapter 4', () => {
         },
         false,
       ],
-    ])('when %s is compared to %s, should return %p', (source, target, expected) => {
+    ])('when %s is compared to %s, deepEqual should return %p', (source, target, expected) => {
       expect(deepEqual(source, target)).toEqual(expected);
     });
   });
