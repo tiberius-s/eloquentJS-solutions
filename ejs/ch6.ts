@@ -7,19 +7,19 @@ export class Vec {
     this.y = y;
   }
 
-  plus(vec: Vec) {
+  plus(vec: Vec): Vec {
     this.x += vec.x;
     this.y += vec.y;
     return this;
   }
 
-  minus(vec: Vec) {
+  minus(vec: Vec): Vec {
     this.x -= vec.x;
     this.y -= vec.y;
     return this;
   }
 
-  get length() {
+  get length(): number {
     return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
   }
 }
@@ -57,10 +57,15 @@ export class Group {
     return group;
   }
 
-  [Symbol.iterator]() {
+  [Symbol.iterator](): GroupIterator {
     return new GroupIterator(this);
   }
 }
+
+export type IteratorResult = {
+  done: boolean;
+  value?: unknown;
+};
 
 // Exercise 3
 export class GroupIterator {
@@ -72,7 +77,7 @@ export class GroupIterator {
     this.list = group.list;
   }
 
-  next() {
+  next(): IteratorResult {
     if (this.index === this.list.length) {
       return { done: true };
     }

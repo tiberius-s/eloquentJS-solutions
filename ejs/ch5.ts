@@ -101,7 +101,7 @@ function countBy<T>(items: Iterable<T>, groupName: (x: T) => unknown): Count[] {
   return counts;
 }
 
-export function dominantDirection(text: string) {
+export function dominantDirection(text: string): string {
   const counts = countBy<string>(text, (char) => {
     const script = characterScript(char.codePointAt(0));
     return script ? script.direction : 'none';
